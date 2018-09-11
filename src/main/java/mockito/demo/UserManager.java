@@ -6,4 +6,10 @@ public class UserManager {
 		return -1;
 	}
 
+
+	public void save(String name) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

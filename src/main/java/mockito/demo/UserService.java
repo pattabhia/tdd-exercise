@@ -20,5 +20,9 @@ public class UserService {
 			return -1;
 		}
 	}
+	
+	public void save(String name) {
+		manager.save(name);
+	}
 
 }

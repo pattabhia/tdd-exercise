@@ -2,9 +2,12 @@ package com.tdd.exercise;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import org.junit.Test;
+import org.mockito.ArgumentCaptor;
 import org.mockito.invocation.InvocationOnMock;
 import org.mockito.stubbing.Answer;
 
@@ -46,5 +49,17 @@ public class UserServiceTest {
 		assertEquals(2,userService.getUserCount());
 		assertEquals(3,userService.getUserCount());
 		assertEquals(4,userService.getUserCount());
+	}
+	
+	@Test
+	public void testTestSave() {
+		UserManager manager = mock(UserManager.class);
+		ArgumentCaptor<String> argumentCaptor = ArgumentCaptor.forClass(String.class);
+		UserService userService = new UserService(manager);
+		userService.save("hamlet");
+		verify(manager,times(1)).save("hamlet");
+		verify(manager,times(0)).getUserCount();
+		verify(manager,times(1)).save(argumentCaptor.capture());
+		assertEquals("hamlet", argumentCaptor.getValue());
 	}
 }
