@@ -8,7 +8,6 @@ public class UserManager {
 
 
 	public void save(String name) {
-		// TODO Auto-generated method stub
 		
 	}
 

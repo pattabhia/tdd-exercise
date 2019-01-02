@@ -87,5 +87,6 @@ public class UserServiceTest {
 		
 		verify(arrayListSpy,times(1)).add("dummy");
 		verify(arrayListSpy,never()).clear();
+		
 	}
 }
